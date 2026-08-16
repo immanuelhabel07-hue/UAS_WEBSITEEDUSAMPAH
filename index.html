@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website edukasi sampah interaktif untuk anak-anak. Belajar mengenal sampah, 3R, bermain kuis, dan mendapatkan poin.">
+  <title>Sahabat Sampah - Edukasi Lingkungan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="#beranda" class="logo"><span>♻️</span> Sahabat Sampah</a>
+    <button class="menu-toggle" aria-label="Buka menu">☰</button>
+    <nav id="navMenu">
+      <a href="#beranda">Beranda</a>
+      <a href="#belajar">Materi</a>
+      <a href="#pilah">Game</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-text">
+        <div class="badge">🌱 BELAJAR • BERMAIN • BERAKSI</div>
+        <h1>Kenali Sampahnya, <span>Jaga Buminya!</span></h1>
+        <p>Belajar mengenal sampah bersama Sasa si Penyu. Pilah sampah dengan tepat, bermain, dan jadilah Sahabat Bumi!</p>
+        <div class="sasa-bubble">🐢 <b>Sasa si Penyu:</b> “Ayo bantu aku menjaga laut tetap bersih!”</div>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#pilah">🗑️ Main Pilah Sampah</a>
+          <a class="btn secondary" href="#belajar">📚 Mulai Belajar</a>
+        </div>
+        <div class="mini-stats">
+          <div><strong>3</strong><small>Jenis Sampah</small></div>
+          <div><strong>3R</strong><small>Gaya Hidup Hijau</small></div>
+          <div><strong>5</strong><small>Soal Kuis</small></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi bumi dan tempat sampah">
+        <img class="timo-mascot" src="assets/timo-maskot.png" alt="Sasa si Penyu, maskot Sahabat Sampah">
+        <div class="sun"></div>
+        <div class="cloud cloud1">☁️</div>
+        <div class="cloud cloud2">☁️</div>
+        <div class="earth">🌍</div>
+        <div class="leaf leaf1">🍃</div>
+        <div class="leaf leaf2">🌿</div>
+        <div class="bin">🗑️</div>
+      </div>
+    </section>
+
+    <section class="section" id="belajar">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">📚 MATERI EDUKASI</div>
+          <h2>Kenali Jenis Sampah</h2>
+        </div>
+        <p>Setiap sampah memiliki cara pengelolaan yang berbeda. Yuk kenali sebelum membuang!</p>
+      </div>
+      <div class="cards">
+        <article class="waste-card organic">
+          <img class="waste-photo" src="assets/sampah-organik.jfif" alt="Sisa buah dan daun sebagai sampah organik">
+          <div class="card-icon">🍌</div>
+          <span class="tag">ORGANIK</span>
+          <h3>Sampah Organik</h3>
+          <p>Sampah yang berasal dari makhluk hidup dan mudah terurai secara alami.</p>
+          <ul><li>🍂 Daun kering</li><li>🍎 Sisa buah</li><li>🍚 Sisa makanan</li></ul>
+          <button onclick="showTip('Organik','Sampah organik dapat diolah menjadi kompos. Pisahkan dari plastik agar mudah diproses.')">💡 Tips</button>
+        </article>
+        <article class="waste-card inorganic">
+          <img class="waste-photo" src="assets/sampah-anorganik.png" alt="Botol plastik, kardus, dan kaleng sebagai sampah anorganik">
+          <div class="card-icon">🥤</div>
+          <span class="tag">ANORGANIK</span>
+          <h3>Sampah Anorganik</h3>
+          <p>Sampah yang sulit terurai dan sebagian dapat digunakan kembali atau didaur ulang.</p>
+          <ul><li>🥤 Botol plastik</li><li>📦 Kardus</li><li>🥫 Kaleng</li></ul>
+          <button onclick="showTip('Anorganik','Cuci dan keringkan kemasan yang bisa didaur ulang. Gunakan kembali barang yang masih layak.')">💡 Tips</button>
+        </article>
+        <article class="waste-card b3">
+          <img class="waste-photo" src="assets/sampah-b3.png" alt="Baterai dan lampu sebagai sampah B3">
+          <div class="card-icon">🔋</div>
+          <span class="tag">B3</span>
+          <h3>Sampah Berbahaya</h3>
+          <p>Sampah yang mengandung bahan berbahaya sehingga perlu ditangani secara khusus.</p>
+          <ul><li>🔋 Baterai</li><li>💡 Lampu tertentu</li><li>🧴 Bahan kimia</li></ul>
+          <button onclick="showTip('B3','Jangan mencampur sampah B3 dengan sampah biasa. Simpan dengan aman dan serahkan ke fasilitas pengelolaan yang sesuai.')">💡 Tips</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="sorting-section section" id="pilah">
+      <div class="section-head centered">
+        <div class="eyebrow">🗑️ GAME PILAH SAMPAH</div>
+        <h2>Masukkan Sampah ke Tempat yang Benar!</h2>
+        <p>Pilih tempat sampah yang sesuai. Setiap jawaban benar mendapat 10 poin.</p>
+      </div>
+      <div class="sorting-game">
+        <div class="sort-item"><span id="sortIcon">🍌</span><h3 id="sortItemName">Kulit Pisang</h3><p id="sortHint">Sampah ini masuk ke mana, ya?</p></div>
+        <div class="bins" id="bins">
+          <button class="bin-choice organic-bin" data-bin="organik"><span>🟢</span> Organik</button>
+          <button class="bin-choice inorganic-bin" data-bin="anorganik"><span>🔵</span> Anorganik</button>
+          <button class="bin-choice b3-bin" data-bin="b3"><span>🔴</span> B3</button>
+        </div>
+        <p class="sort-feedback" id="sortFeedback" aria-live="polite">Ayo pilih tempat sampahnya!</p>
+        <div class="sort-score">Skor Pilah: <b id="sortScore">0</b> / 50</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><a href="#beranda" class="logo">♻️ Sahabat Sampah</a><p>Website edukasi pengelolaan sampah untuk generasi peduli lingkungan.</p></div>
+    <div><h4>Menu</h4><a href="#beranda">Beranda</a><a href="#belajar">Materi</a><a href="#pilah">Game</a></div>
+    <div><h4>Pesan</h4><p>🌱 Pilah • Kurangi • Gunakan Kembali • Daur Ulang</p></div>
+    <div class="copyright">© 2026 EcoKids. Dibuat untuk pembelajaran.</div>
+  </footer>
+
+  <div class="modal" id="tipModal">
+    <div class="modal-card"><button class="close" onclick="closeTip()">×</button><div id="tipIcon">💡</div><h3 id="tipTitle"></h3><p id="tipText"></p><button class="btn primary" onclick="closeTip()">Mengerti 👍</button></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
